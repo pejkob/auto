@@ -5,47 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body onload="mozgas()">
   
-    <svg width="350" height="400">
-      
+    <div class="container">
 
-   
-        <rect width="300" height="400" style="fill:rgb(0,255,0);stroke-width:3;stroke:rgb(0,0,0)" />
-        <rect width="300" height="100" style="fill:rgb(0,120,230);stroke-width:3;stroke:rgb(0,0,0)" />
-      
-       
-        
-        <line x1="200" y1="40" x2="100" y2="20" style="stroke:rgb(255,255,0);stroke-width:4" />
-        <polygon points="100,5 125,95 80,105" style="fill:brown;stroke:purple;stroke-width:1" />
-        <polygon points="200,10 250,190 160,210" style="fill:brown;stroke:purple;stroke-width:1" />
-        <line x1="140" y1="120" x2="140" y2="30" style="stroke:rgb(255,255,0);stroke-width:4" />
-        <line x1="160" y1="120" x2="160" y2="30" style="stroke:rgb(255,255,0);stroke-width:4" />
-        <rect x="135" y="120" rx="5" ry="5" x2="160" y2="240" width="30" height="10">   
-       
-        
-      </svg>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+             Item1
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <svg width="350" height="400">
+                    <rect width="300" height="400" style="fill:rgb(0,255,0);stroke-width:3;stroke:rgb(0,0,0)" />
+                    <rect width="300" height="100" style="fill:rgb(0,120,230);stroke-width:3;stroke:rgb(0,0,0)" />
+                    <line x1="200" y1="40" x2="100" y2="20" style="stroke:rgb(255,255,0);stroke-width:4" />
+                    <polygon points="100,5 125,95 80,105" style="fill:brown;stroke:purple;stroke-width:1" />
+                    <polygon points="200,10 250,190 160,210" style="fill:brown;stroke:purple;stroke-width:1" />
+                    <line x1="140" y1="120" x2="140" y2="30" style="stroke:rgb(255,255,0);stroke-width:4" />
+                    <line x1="160" y1="120" x2="160" y2="30" style="stroke:rgb(255,255,0);stroke-width:4" />
+                    <rect x="135" y="120" rx="5" ry="5" x2="160" y2="240" width="30" height="10">   
+                  </svg>
+              </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Item2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+             
+                 <input type="color" id="szin" onchange="szinez()">
+                 <br>
+                 <label for="r">R:</label>
+                 <input onmousemove="kerekszin()" min="1" max="255" type="range" name="" id="r">
+                <br><label for="g">G:</label>
+                 <input onmousemove="kerekszin()" min="1" max="255" type="range" name="" id="g">
+                 <br><label for="b">B:</label>
+                 <input onmousemove="kerekszin()" min="1" max="255" type="range" name="" id="b">
+                <br>
+                <input onchange="mozgas()" min="300" max="1100" type="range" name="" id="mozgatas">
 
-      <input type="color" id="szin" onchange="szinez()">
-      R:
-      <input onmousemove="kerekszin()" min="1" max="255" type="range" name="" id="r">
-        G:
-      <input onmousemove="kerekszin()" min="1" max="255" type="range" name="" id="g">
-      B:
-      <input onmousemove="kerekszin()" min="1" max="255" type="range" name="" id="b">
-      
-     <input onchange="mozgas()" min="300" max="900" type="range" name="" id="mozgatas">
+                <svg width="1150" height="300">
+                   <circle id="kerek1" cx="300" cy="150" r="50" style="fill: yellow; stroke:black"/>
+                   <circle id="kerek2" cx="50" cy="150" r="50" style="fill: yellow; stroke:black"/>
 
-    <svg width="950" height="300">
-        <circle id="kerek1" cx="300" cy="150" r="50" style="fill: yellow; stroke:black"/>
-        <circle id="kerek2" cx="50" cy="150" r="50" style="fill: yellow; stroke:black"/>
+                   <rect id="autotest" x="50" y="0" width="250" height="150" style="fill:brown;stroke-width:3;stroke:rgb(0,0,0)" />
+                 </svg>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Item3
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <img src="auto.png" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <rect id="autotest" x="50" y="0" width="250" height="150" style="fill:brown;stroke-width:3;stroke:rgb(0,0,0)" />
-      </svg>
+
     
-      <img src="auto.png" alt="">
-      
+
+    
+     
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
       <script>
 
           
