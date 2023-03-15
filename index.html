@@ -16,7 +16,12 @@
         
         padding: 10px;
       }
+      #collapseFour
+      {
+        background-color: black;
 
+        color: white;
+      }
       h1{
         text-align: center;
       }
@@ -119,17 +124,17 @@
               </div>
               <div class="ora">
                 <svg width="400" height="400">
-                  <circle id="oratest" cx="50" cy="150" r="50" style="fill: magenta; stroke:black"/>
+                  <circle id="oratest" cx="50" cy="150" r="50" style="fill: white; stroke:brown;stroke-width:3"/>
                   <line id="oravonal" x1="50" y1="150" x2="20" y2="150"  transform="rotate(90,51,150)" style="stroke:rgb(51, 132, 179);stroke-width:4" />
                   <line id="percvonal" x1="50" y1="150" x2="50" y2="110" transform="rotate(90,51,150)" style="stroke:rgb(6, 71, 109);stroke-width:4" />
                   <circle id="orapont" cx="50" cy="150" r="5" style="fill: black; stroke:black"/>  
               </svg>
               <div class="form">
                 <label for="ora">Óra:</label> <br>
-                <input type="number" name="" class="box" id="ora">
+                <input onchange="checkvalid(0,24,this.id)" max="24"  type="number" name="" class="box" id="ora">
                  <br>
                 <label for="perc">Perc:</label> <br>
-                <input type="number" class="box" name="" id="perc"> <br>
+                <input onchange="checkvalid(0,60,this.id)" max="60" type="number" class="box" name="" id="perc"> <br>
                 <input onclick="orabeallitas()" type="button" class="btn btn-danger box" value="Beállít">
               </div>
            
@@ -142,29 +147,68 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
       <script>
  
-          function orabeallitas()
-          {
-            let hour=document.getElementById('ora').value;
-            let minuate=document.getElementById('perc').value;
-            let hrotate=hour*30+90;
-            let mrotate=minuate*6;
-            document.getElementById("oravonal").setAttribute("transform","rotate("+hrotate+",50,150)");
-            document.getElementById("percvonal").setAttribute("transform","rotate("+mrotate+",50,150)");
+          function checkvalid(min,max,obj){
+
+            let element=document.getElementById(obj).value;
+
+            if(element>max)
+            {
+              
+              document.getElementById(obj).value=max;
+            }
+            if(element<min)
+            {
+              document.getElementById(obj).value=min;
+            }
+
           }
 
           function timesetup()
           {
             let hour2=parseInt(Date().split(" ")[4].split(":")[0]);
             let minuate2=parseInt(Date().split(" ")[4].split(":")[1]);
-            if(minuate2<10)
-            {
-              minuate2=minuate2[1];
-            }
-          document.getElementById('ora').value=hour2;
-          document.getElementById('perc').value=minuate2;
-          document.getElementById("oravonal").setAttribute("transform","rotate("+hour2+",50,150)");
-          document.getElementById("percvonal").setAttribute("transform","rotate("+minuate2+",50,150)");
+            document.getElementById('ora').value=hour2;
+            document.getElementById('perc').value=minuate2;
+            let rotatehour=hour2*30+90;
+            let rotateminuate=minuate2*6;
+            document.getElementById("oravonal").setAttribute("transform","rotate("+rotatehour+",50,150)");
+            document.getElementById("percvonal").setAttribute("transform","rotate("+rotateminuate+",50,150)");
           }
+
+          function orabeallitas()
+          {
+            let hour=document.getElementById('ora').value;
+            let minuate=document.getElementById('perc').value;
+
+            if(hour>24||hour<0)
+            {
+              alert("xd");
+            }
+            else  {
+              let hrotate=hour*30+90;
+              document.getElementById("oravonal").setAttribute("transform","rotate("+hrotate+",50,150)");
+            }
+            if(minuate>60||minuate<0)
+            {
+              alert("xd");
+            }
+            else  {
+              let mrotate=minuate*6;
+              document.getElementById("percvonal").setAttribute("transform","rotate("+mrotate+",50,150)");
+                 }
+
+            }
+            
+          
+
+
+
+
+
+
+
+
+         
           function mozgas()
           {
             document.getElementById('kerek1').setAttribute("cx",document.getElementById('mozgatas').value);
