@@ -137,9 +137,6 @@
                 <input onchange="checkvalid(0,60,this.id)" max="60" type="number" class="box" name="" id="perc"> <br>
                 <input onclick="orabeallitas()" type="button" class="btn btn-danger box" value="Beállít">
               </div>
-           
-           
-              
           </div>
         </div>
       </div>
@@ -153,22 +150,17 @@
 
             if(element>max)
             {
-              
               document.getElementById(obj).value=max;
             }
             if(element<min)
             {
               document.getElementById(obj).value=min;
             }
-
             if(element==0)
             {
               document.getElementById(obj).value=1;
             }
-           
-
           }
-
           function timesetup()
           {
             let hour2=parseInt(Date().split(" ")[4].split(":")[0]);
@@ -182,6 +174,7 @@
           }
 
           function orabeallitas()
+          
           {
             let hour=Number(document.getElementById('ora').value);
             let minuate=document.getElementById('perc').value;
@@ -198,20 +191,7 @@
             document.getElementById("oravonal").setAttribute("transform","rotate("+hrotate+",50,150)");
             let mrotate=minuate*6;
             document.getElementById("percvonal").setAttribute("transform","rotate("+mrotate+",50,150)");
-            
-
             }
-            
-          
-
-
-
-
-
-
-
-
-         
           function mozgas()
           {
             document.getElementById('kerek1').setAttribute("cx",document.getElementById('mozgatas').value);
