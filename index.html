@@ -161,6 +161,12 @@
               document.getElementById(obj).value=min;
             }
 
+            if(element==0)
+            {
+              document.getElementById(obj).value=1;
+            }
+           
+
           }
 
           function timesetup()
@@ -177,25 +183,22 @@
 
           function orabeallitas()
           {
-            let hour=document.getElementById('ora').value;
+            let hour=Number(document.getElementById('ora').value);
             let minuate=document.getElementById('perc').value;
+            if(minuate==60)
+            {
+              hour+=1;
+              document.getElementById('ora').value=hour;
+              document.getElementById('perc').value=0;
 
-            if(hour>24||hour<0)
-            {
-              alert("xd");
             }
-            else  {
-              let hrotate=hour*30+90;
-              document.getElementById("oravonal").setAttribute("transform","rotate("+hrotate+",50,150)");
-            }
-            if(minuate>60||minuate<0)
-            {
-              alert("xd");
-            }
-            else  {
-              let mrotate=minuate*6;
-              document.getElementById("percvonal").setAttribute("transform","rotate("+mrotate+",50,150)");
-                 }
+ 
+
+            let hrotate=hour*30+90;
+            document.getElementById("oravonal").setAttribute("transform","rotate("+hrotate+",50,150)");
+            let mrotate=minuate*6;
+            document.getElementById("percvonal").setAttribute("transform","rotate("+mrotate+",50,150)");
+            
 
             }
             
