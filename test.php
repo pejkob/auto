@@ -66,6 +66,23 @@
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="modalPopUpLabel">Új Projekt hozzáadása</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close" names="button1" data-bs-dismiss="modal" aria-label="Save Changes"></button>
+                  <?php
+                  <?php
+     
+                   if(isset($_POST['button1'])) {
+                    
+                    
+                   }
+                  ?>
+  
+ <form method="post">
+     <input type="submit" name="button1"
+             value="Button1"/>
+      
+     <input type="submit" name="button2"
+             value="Button2"/>
+ </form>
                 </div>
                 <div class="modal-body">
 
