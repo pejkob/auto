@@ -65,36 +65,49 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="modalPopUpLabel">Új Projekt hozzáadása</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  <button type="button" class="btn-close" names="button1" data-bs-dismiss="modal" aria-label="Save Changes"></button>
-                  <?php
-                  <?php
-     
-                   if(isset($_POST['button1'])) {
-                    
-                    
-                   }
-                  ?>
-  
- <form method="post">
-     <input type="submit" name="button1"
-             value="Button1"/>
-      
-     <input type="submit" name="button2"
-             value="Button2"/>
- </form>
-                </div>
+                  </div>
                 <div class="modal-body">
+                   <form method="post">
+                    <input type="text" name="card[name]" id="cardname">
+                    <input type="text" name="card[description]" id="carddescription">
+                    <input type="text" name="card[indexlink]" id="cardindexlink">
 
-                    
-
-                  
+                   </form>
                 </div>
                 <div class="modal-footer">
-                <form method="post" action="script.php">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Save changes</button>
-                  <input type="submit" name="submit" value="Execute Script">
+                <form method="post">
+                  <button type="button" name="button1" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </form>
+                <?php
+                        if(isset($_POST['button1'])) {
+                          $servername = "localhost";
+                          $username = "webaruhaz_pr";
+                          $password = "&rsuzu(%K%x!fn^D";
+                          $dbname = "webaruhaz_pr";
+                          $name=$_POST['card[name]'];
+                          $description=$_POST['card[description]'];
+                          $indexlink=$_POST['card[indexlink]'];
+
+                          $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+                          $conn = mysqli_connect($servername, $username, $password, $dbname);
+                          // Check connection
+                          if (!$conn) {
+                            die("Kapcsolódási hiba: " . mysqli_connect_error());
+                            }
+
+                          $sql = "INSERT INTO `cards`(`cardID`, `cardname`, `carddescription`, `cardindexlink`) VALUES (,$name,$description,$indexlink)";
+                          $result = mysqli_query($conn, $sql);
+
+                          if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            echo "siker";
+                          }
+
+                    
+                        }
+                      ?>
                  
                   
                 </div>
