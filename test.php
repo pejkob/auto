@@ -74,8 +74,12 @@
                   
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" onclick="modalpopup()" class="btn btn-primary">Save changes</button>
+                <form method="post" action="script.php">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Save changes</button>
+                  <input type="submit" name="submit" value="Execute Script">
+                </form>
+                 
+                  
                 </div>
               </div>
             </div>
