@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+     
+        #dice{
+            float:left;
+            position:block;
+            width: 150px;
+       
+            
+        }
+       #dobaserteke{
+        width: 15px;
+        background-color: dimgray;
+        color: white;
+       }
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div id="dobastest">
+        <img src="diceroll.gif" id="dice" alt="">
+        <input onclick="dobas()" type="button"  value="Dobás">
+        <br>
+       <label for="dobaserteke">Dobás értéke: </label>
+        <input type="text" name="" id="dobaserteke" disabled>
+    </div>
+   <link rel="stylesheet" href="https://fonts.google.com/alkatra">
+</head>
+<body>
+
+    <script>
+        document.getElementById('dice').style.visibility="hidden";
+        
+        async function dobas()
+        {
+            document.getElementById('dobaserteke').value="";
+            let dobasertek=Math.floor(Math.random()*(7-1)+1);
+            document.getElementById('dice').style.visibility="visible";
+            await new Promise(r => setTimeout(r, 2000));
+            document.getElementById('dice').style.visibility="hidden";
+            document.getElementById('dobaserteke').value+=String(dobasertek);
+        }
+
+
+
+            
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
